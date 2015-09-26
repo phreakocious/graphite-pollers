@@ -38,7 +38,7 @@ ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutBroadcastPkts 701814 144328135
 Additional files and counters of interest can be added with a simple tweak to the file.  Run this with a 15 or 30 second polling interval to catch some microbursts in action.
 
 ```
-[tbulger@toolbox.ny2:~] $ ./procnet_to_graphite.rb 
+$ ./procnet_to_graphite.rb 
 Usage: ./procnet_to_graphite.rb [-g HOST | -t] [options]
     -g, --graphite-host HOST         hostname or IP address of graphite host to send metrics to
     -l, --graphite-port PORT         graphite listening port (defaults to 2003)
