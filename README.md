@@ -1,9 +1,10 @@
 # graphite-pollers
-Collection of scripts that shovel data into graphite.
+Collection of scripts that shovel data into graphite.  Throw into cron and go!
 
-ifstats_to_graphite.rb - A multi-threaded SNMP poller for IF-MIB interface statistics
+#####ifstats_to_graphite.rb
+A multi-threaded SNMP poller for IF-MIB interface statistics
 
-Requires the snmp gem
+Requires the snmp gem, additional counters can be added with an easy edit
 
 ```
 $ ./ifstats_to_graphite.rb
@@ -31,10 +32,11 @@ ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutMulticastPkts 651102595 144328
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutBroadcastPkts 701814 1443281354
 ```
 
+
   
 
 
-procnet_to_graphite.rb - Extract valuable linux network stack data from files like /proc/net/snmp and /proc/net/netstat
+#####procnet_to_graphite.rb - Extract valuable linux network stack data from files like /proc/net/snmp and /proc/net/netstat
 
 Additional files and counters of interest can be added with a simple tweak to the file.  Run this with a 15 or 30 second polling interval to catch some microbursts in action.
 
@@ -57,3 +59,4 @@ netstat.mylinux_foo_com.Tcp.RetransSegs 335093 1443295704
 netstat.mylinux_foo_com.Tcp.OutRsts 185353 1443295704
 netstat.mylinux_foo_com.TcpExt.TCPTimeWaitOverflow 0 1443295704
 ```
+
