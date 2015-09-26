@@ -31,6 +31,7 @@ ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutMulticastPkts 651102595 144328
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutBroadcastPkts 701814 1443281354
 ```
 
+  
 
 
 procnet_to_graphite.rb - Extract valuable linux network stack data from files like /proc/net/snmp and /proc/net/netstat
@@ -47,12 +48,12 @@ Usage: ./procnet_to_graphite.rb [-g HOST | -t] [options]
     -h, --help                       this help stuff
 
 $ ./procnet_to_graphite.rb -t
-netstat.mylinux_foo_com.Tcp.ActiveOpens 488449 1443295335
-netstat.mylinux_foo_com.Tcp.PassiveOpens 56140 1443295335
-netstat.mylinux_foo_com.Tcp.AttemptFails 156709 1443295335
-netstat.mylinux_foo_com.Tcp.EstabResets 119 1443295335
-netstat.mylinux_foo_com.Tcp.CurrEstab 239519111 1443295335
-netstat.mylinux_foo_com.Tcp.RetransSegs 4448 1443295335
-netstat.mylinux_foo_com.Tcp.OutRsts 0 1443295335
-netstat.mylinux_foo_com.TcpExt.TCPTimeWaitOverflow 0 1443295335
+netstat.mylinux_foo_com.Tcp.ActiveOpens 4127974 1443295704
+netstat.mylinux_foo_com.Tcp.PassiveOpens 488481 1443295704
+netstat.mylinux_foo_com.Tcp.AttemptFails 56140 1443295704
+netstat.mylinux_foo_com.Tcp.EstabResets 156711 1443295704
+netstat.mylinux_foo_com.Tcp.CurrEstab 121 1443295704
+netstat.mylinux_foo_com.Tcp.RetransSegs 335093 1443295704
+netstat.mylinux_foo_com.Tcp.OutRsts 185353 1443295704
+netstat.mylinux_foo_com.TcpExt.TCPTimeWaitOverflow 0 1443295704
 ```
