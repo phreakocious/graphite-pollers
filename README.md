@@ -30,3 +30,29 @@ ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutUcastPkts 560080764584 1443281
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutMulticastPkts 651102595 1443281354
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutBroadcastPkts 701814 1443281354
 ```
+
+
+
+procnet_to_graphite.rb - Extract valuable linux network stack data from files like /proc/net/snmp and /proc/net/netstat
+
+Additional files and counters of interest can be added with a simple tweak to the file.  Run this with a 15 or 30 second polling interval to catch some microbursts in action.
+
+```
+[tbulger@toolbox.ny2:~] $ ./procnet_to_graphite.rb 
+Usage: ./procnet_to_graphite.rb [-g HOST | -t] [options]
+    -g, --graphite-host HOST         hostname or IP address of graphite host to send metrics to
+    -l, --graphite-port PORT         graphite listening port (defaults to 2003)
+    -x, --graphite-prefix PREFIX     prefix for metric names (defaults to netstat)
+    -t, --test                       test mode prints results but sends no metrics to graphite
+    -h, --help                       this help stuff
+
+$ ./procnet_to_graphite.rb -t
+netstat.mylinux_foo_com.Tcp.ActiveOpens 488449 1443295335
+netstat.mylinux_foo_com.Tcp.PassiveOpens 56140 1443295335
+netstat.mylinux_foo_com.Tcp.AttemptFails 156709 1443295335
+netstat.mylinux_foo_com.Tcp.EstabResets 119 1443295335
+netstat.mylinux_foo_com.Tcp.CurrEstab 239519111 1443295335
+netstat.mylinux_foo_com.Tcp.RetransSegs 4448 1443295335
+netstat.mylinux_foo_com.Tcp.OutRsts 0 1443295335
+netstat.mylinux_foo_com.TcpExt.TCPTimeWaitOverflow 0 1443295335
+```
