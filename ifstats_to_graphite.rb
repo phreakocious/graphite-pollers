@@ -77,9 +77,13 @@ thread_pool.each(&:join)  # Pause main thread execution until all the others are
 abort $metrics.join if $testing || ! $graphite_host  # Print and end here if we're running in test mode!
 
 $metrics.each_slice(30) do |metric_set|  # Sending too many things to graphite at once makes it angry.
-  socket = TCPSocket.open($graphite_host, $graphite_port)
-  socket.write(metric_set.join)
-  socket.close()
+  begin
+    socket = TCPSocket.open($graphite_host, $graphite_port)
+    socket.write(metric_set.join)
+    socket.close()
+  rescue Exception => e
+    STDERR.puts "*** failed to send metrics to #{$graphite_host}:#{$graphite_port} - #{e.to_s} ***"
+  end
 end
 
 
