@@ -35,7 +35,7 @@ ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutBroadcastPkts 701814 144328135
 
 #####procnet_to_graphite.rb - Extract valuable linux TCP/UDP netstat data from /proc/net/
 
-Additional files and counters of interest can be added with a simple tweak to the file.  Run this with a 15 or 30 second polling interval to catch some microbursts in action.
+Additional files and counters of interest can be added with a simple tweak to the file.  Run this with a very short polling interval to catch some microbursts in action.
 
 ```
 $ ./procnet_to_graphite.rb 
