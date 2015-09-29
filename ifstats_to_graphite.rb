@@ -36,7 +36,8 @@ OptionParser.new do |o|
 end
 
 # Defines which metrics in the SNMP table to pay attention to
-$counters = [ 'ifInDiscards', 'ifInErrors', 'ifHCInOctets', 'ifHCInUcastPkts', 'ifHCInMulticastPkts', 'ifHCInBroadcastPkts', 'ifHCOutOctets', 'ifHCOutUcastPkts', 'ifHCOutMulticastPkts', 'ifHCOutBroadcastPkts', 'ipIfStatsHCInOctets', 'ipIfStatsHCOutOctets' ]
+$counters = [ 'ifInDiscards', 'ifInErrors', 'ifHCInOctets', 'ifHCInUcastPkts', 'ifHCInMulticastPkts', 'ifHCInBroadcastPkts', 'ifHCOutOctets', 'ifOutErrors', 
+              'ifOutDiscards', 'ifHCOutUcastPkts', 'ifHCOutMulticastPkts', 'ifHCOutBroadcastPkts', 'ipIfStatsHCInOctets', 'ipIfStatsHCOutOctets' ]
 
 def poll_host(host) 
   host_metrics = []
