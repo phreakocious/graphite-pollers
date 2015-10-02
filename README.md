@@ -6,17 +6,21 @@ Collection of scripts that shovel data into graphite.  Throw into cron and go!
 Requires the snmp gem, additional counters can be added with an easy edit
 
 ```
-$ ./ifstats_to_graphite.rb
-Usage: ./ifstats_to_graphite.rb -c COMMUNITY [-d DEVICE | -f FILE] [options]
+$ ./ifstats_to_graphite.rb 
+Usage: ./ifstats_to_graphite.rb -c COMMUNITY [-h HOST | -f FILE] [options]
     -c, --community COMMUNITY        SNMP community string for device(s)
-    -d, --device DEVICE              hostname or IP address of device to poll
+    -h, --host HOST                  hostname or IP address of device to poll
     -f, --file FILE                  file containing a list of devices to poll
     -g, --graphite-host HOST         hostname or IP address of graphite host to send metrics to
     -l, --graphite-port PORT         graphite listening port (defaults to 2003)
     -x, --graphite-prefix PREFIX     prefix for metric names (defaults to ifstats)
     -p, --parallel THREADS           number of poller threads to run in parallel (defaults to 8)
-    -t, --test                       test mode prints results but sends no metrics to graphite
-    -h, --help                       this help stuff
+    -n, --name NAME                  identifier for this poller (for multiple instances) (defaults to ifstats)
+    -r, --retries RETRIES            number of retries after a timeout (defaults to 2)
+    -t, --timeout TIMEOUT            number of seconds to wait for a response (defaults to 4)
+    -m, --maxbulk VARBINDS           maximum varbinds per-host to request in bulk (defaults to 10)
+    -b, --bulkwalk                   do bulk requests for SNMP (much more efficient) (defaults to true)
+    -d, --debug                      debug mode prints results but sends no metrics to graphite
 
 $ ./ifstats_to_graphite.rb -d myswitch.foo.com -c public -t
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.InDiscards 0 1443281354
