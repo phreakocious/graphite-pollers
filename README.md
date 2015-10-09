@@ -22,7 +22,7 @@ Usage: ./ifstats_to_graphite.rb -c COMMUNITY [-h HOST | -f FILE] [options]
     -b, --bulkwalk                   do bulk requests for SNMP (much more efficient) (defaults to true)
     -d, --debug                      debug mode prints results but sends no metrics to graphite
 
-$ ./ifstats_to_graphite.rb -d myswitch.foo.com -c public -t
+$ ./ifstats_to_graphite.rb -d myswitch.foo.com -c public -d
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.InDiscards 0 1443281354
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.InErrors 168133 1443281354
 ifstats.myswitch_foo_com.TenGigabitEthernet1-1.InOctets 356574694339561 1443281354
@@ -43,14 +43,14 @@ Additional files and counters of interest can be added with a simple tweak to th
 
 ```
 $ ./procnet_to_graphite.rb 
-Usage: ./procnet_to_graphite.rb [-g HOST | -t] [options]
+Usage: ./procnet_to_graphite.rb [-g HOST | -d] [options]
     -g, --graphite-host HOST         hostname or IP address of graphite host to send metrics to
     -l, --graphite-port PORT         graphite listening port (defaults to 2003)
     -x, --graphite-prefix PREFIX     prefix for metric names (defaults to netstat)
-    -t, --test                       test mode prints results but sends no metrics to graphite
+    -d, --debug                      test mode prints results but sends no metrics to graphite
     -h, --help                       this help stuff
 
-$ ./procnet_to_graphite.rb -t
+$ ./procnet_to_graphite.rb -d
 netstat.mylinux_foo_com.Tcp.ActiveOpens 4127974 1443295704
 netstat.mylinux_foo_com.Tcp.PassiveOpens 488481 1443295704
 netstat.mylinux_foo_com.Tcp.AttemptFails 56140 1443295704
