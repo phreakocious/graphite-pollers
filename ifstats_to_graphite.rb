@@ -35,8 +35,8 @@ $varbinds = 0
 OptionParser.new do |o|
   o.banner = "Usage: #{$0} -c COMMUNITY [-h HOST | -f FILE] [options]"
   o.on('-c', '--community COMMUNITY', 'SNMP community string for device(s)') { |b| $community = b }
-  o.on('-h', '--host HOST', 'hostname or IP address of device to poll')  { |b| abort "Error: -d and -f cannot be specified together." unless $hosts.empty?; $hosts << b }
-  o.on('-f', '--file FILE', 'file containing a list of devices to poll') { |b| abort "Error: -d and -f cannot be specified together." unless $hosts.empty? ; handle_file(b) }
+  o.on('-h', '--host HOST', 'hostname or IP address of device to poll')  { |b| abort "Error: -h and -f cannot be specified together." unless $hosts.empty?; $hosts << b }
+  o.on('-f', '--file FILE', 'file containing a list of devices to poll') { |b| abort "Error: -h and -f cannot be specified together." unless $hosts.empty? ; handle_file(b) }
   o.on('-g', '--graphite-host HOST', 'hostname or IP address of graphite host to send metrics to') { |b| $graphite_host = b }
   o.on('-l', '--graphite-port PORT', "graphite listening port (defaults to #{$graphite_port})") { |b| $graphite_port = b.to_i }
   o.on('-x', '--graphite-prefix PREFIX', "prefix for metric names (defaults to #{$graphite_prefix})") { |b| $graphite_prefix = b }
