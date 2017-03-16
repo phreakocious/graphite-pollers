@@ -6,7 +6,7 @@ Collection of scripts that shovel data into graphite.  Throw into cron and go!
 Requires the snmp gem, additional counters can be added with an easy edit
 
 ```
-$ ./ifstats_to_graphite.rb 
+$ ./ifstats_to_graphite.rb
 Usage: ./ifstats_to_graphite.rb -c COMMUNITY [-h HOST | -f FILE] [options]
     -c, --community COMMUNITY        SNMP community string for device(s)
     -h, --host HOST                  hostname or IP address of device to poll
@@ -42,7 +42,7 @@ ifstats.myswitch_foo_com.TenGigabitEthernet1-1.OutBroadcastPkts 701814 144328135
 Additional files and counters of interest can be added with a simple tweak to the file.  Run this with a very short polling interval to catch some microbursts in action.
 
 ```
-$ ./procnet_to_graphite.rb 
+$ ./procnet_to_graphite.rb
 Usage: ./procnet_to_graphite.rb [-g HOST | -d] [options]
     -g, --graphite-host HOST         hostname or IP address of graphite host to send metrics to
     -l, --graphite-port PORT         graphite listening port (defaults to 2003)

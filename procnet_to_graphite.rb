@@ -13,8 +13,8 @@ $graphite_prefix = 'netstat'
 $debug = false
 
 files = [ '/proc/net/snmp', '/proc/net/netstat' ]
-counters = [ 'Tcp.RetransSegs', 'Tcp.AttemptFails', 'Tcp.EstabResets', 'Tcp.OutRsts', 'Tcp.InRsts', 
-             'Tcp.InErrs', 'Tcp.InCsumErrors', 'Tcp.CurrEstab', 'Tcp.ActiveOpens', 'Tcp.PassiveOpens', 
+counters = [ 'Tcp.RetransSegs', 'Tcp.AttemptFails', 'Tcp.EstabResets', 'Tcp.OutRsts', 'Tcp.InRsts',
+             'Tcp.InErrs', 'Tcp.InCsumErrors', 'Tcp.CurrEstab', 'Tcp.ActiveOpens', 'Tcp.PassiveOpens',
              'TcpExt.TCPTimeWaitOverflow', 'TcpExt.RcvPruned', 'TcpExt.TCPBacklogDrop',
              'TcpExt.PruneCalled', 'TcpExt.ListenOverflows', 'TcpExt.ListenDrops', 'TcpExt.TCPTimeouts',
              'TcpExt.TCPMemoryPressures', 'TcpExt.TCPReqQFullDoCookies', 'TcpExt.TCPReqQFullDrop',
