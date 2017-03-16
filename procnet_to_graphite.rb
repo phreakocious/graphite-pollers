@@ -13,8 +13,8 @@ $graphite_prefix = 'netstat'
 $debug = false
 
 files = [ '/proc/net/snmp', '/proc/net/netstat' ]
-counters = [ 'Tcp.RetransSegs', 'Tcp.AttemptFails', 'Tcp.EstabResets', 'Tcp.OutRsts', 'Tcp.InRsts', 
-             'Tcp.InErrs', 'Tcp.InCsumErrors', 'Tcp.CurrEstab', 'Tcp.ActiveOpens', 'Tcp.PassiveOpens', 
+counters = [ 'Tcp.RetransSegs', 'Tcp.AttemptFails', 'Tcp.EstabResets', 'Tcp.OutRsts', 'Tcp.InRsts',
+             'Tcp.InErrs', 'Tcp.InCsumErrors', 'Tcp.CurrEstab', 'Tcp.ActiveOpens', 'Tcp.PassiveOpens',
              'TcpExt.TCPTimeWaitOverflow', 'TcpExt.RcvPruned', 'TcpExt.TCPBacklogDrop',
              'TcpExt.PruneCalled', 'TcpExt.ListenOverflows', 'TcpExt.ListenDrops', 'TcpExt.TCPTimeouts',
              'TcpExt.TCPMemoryPressures', 'TcpExt.TCPReqQFullDoCookies', 'TcpExt.TCPReqQFullDrop',
@@ -23,7 +23,7 @@ counters = [ 'Tcp.RetransSegs', 'Tcp.AttemptFails', 'Tcp.EstabResets', 'Tcp.OutR
 ARGV << '-h' if ARGV.empty?
 
 OptionParser.new do |o|
-  o.banner = "Usage: #{$0} [-g HOST | -t] [options]"
+  o.banner = "Usage: #{$0} [-g HOST] [options]"
   o.on('-g', '--graphite-host HOST', 'hostname or IP address of graphite host to send metrics to') { |b| $graphite_host = b }
   o.on('-l', '--graphite-port PORT', "graphite listening port (defaults to #{$graphite_port})") { |b| $graphite_port = b.to_i }
   o.on('-x', '--graphite-prefix PREFIX', "prefix for metric names (defaults to #{$graphite_prefix})") { |b| $graphite_prefix = b }
